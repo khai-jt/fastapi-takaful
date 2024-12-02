@@ -1,5 +1,5 @@
-from fastapi import APIRouter, HTTPException
-from models import question, error
+from fastapi import APIRouter
+from models import question
 from services import question_service
 
 router = APIRouter(
