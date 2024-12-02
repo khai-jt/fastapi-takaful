@@ -1,5 +1,6 @@
 from httpx import AsyncClient
 from models import question
+from pydantic import ValidationError
 
 API_KEY = ""
 ENDPOINT = "https://assessment.takafulbrunei.com/v1/question"
@@ -40,8 +41,11 @@ async def answer_question_two(answer: question.Question2AnswerRequest) -> str:
     try:
         question.Question2AnswerResponse.model_validate(data)
     
-    except:
+    except ValidationError:
         return "invalid"
+    
+    except:
+        return "failed"
     
     else:
         return "success"
