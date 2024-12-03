@@ -10,16 +10,16 @@ class BankAccount:
         self.account_holder = account_holder
         self.balance = balance
 
-    def deposit(self, amount: int):
+    def deposit(self, amount: float):
         self.balance += amount
         return self.balance
 
-    def withdraw(self, amount: int):
-        self.balance += amount
+    def withdraw(self, amount: float):
+        self.balance -= amount
         return self.balance
 
 
-    def get_balance(self, amount: int):
+    def get_balance(self):
         return self.balance
 
 
@@ -32,4 +32,15 @@ class CheckingAccount(BankAccount):
 class SavingsAccount(BankAccount):
     def __init__(self, account_holder: Customer, balance: float):
         super().__init__(account_holder, balance)
+
+    def withdraw(self, amount: float):
+        
+        current_balance = self.balance
+
+        new_balance = current_balance - amount
+        if (new_balance > 100):
+            self.balance -= amount
+
+        return self.balance
+
 
