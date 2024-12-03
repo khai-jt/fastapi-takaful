@@ -21,6 +21,9 @@ class BankAccount:
 
     def get_balance(self):
         return self.balance
+    
+    def get_customer_full_name(self):
+        return self.account_holder.firstname + " " + self.account_holder.surname
 
 
 
