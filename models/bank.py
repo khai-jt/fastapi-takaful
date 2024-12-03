@@ -1,7 +1,4 @@
 
-
-
-
 class Customer:
     def __init__(self, firstname: str, surname: str):
         self.firstname = firstname
@@ -27,6 +24,12 @@ class BankAccount:
 
 
 
+class CheckingAccount(BankAccount):
+    def __init__(self, account_holder: Customer, balance: float):
+        super().__init__(account_holder, balance)
 
-    
+
+class SavingsAccount(BankAccount):
+    def __init__(self, account_holder: Customer, balance: float):
+        super().__init__(account_holder, balance)
 
